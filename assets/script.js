@@ -23,6 +23,15 @@ let workDay = [
     { time: "8:00 PM", event: ""},
 ];
 
+//define function for loading saved tasks
+function loadSaved(words) {
+    let savedEntry = localStorage.getItem(words);
+
+    if (savedEntry) {
+        $('#col-text-' + words).text(savedEntry);
+    }
+};
+
 $(function() {
     workDay.forEach(function(element,index) {
         const hour = element.time;
