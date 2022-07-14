@@ -23,3 +23,30 @@ let workDay = [
     { time: "8:00 PM", event: ""},
 ];
 
+// div for every hour
+$('.container').append('<div class="row time-block" id="' + index + 
+    '"><div class="col-2 hour">' + hour + 
+    '</div><textarea id="col-text-' + index + 
+    '" class="col-8 description ' + colorBlock + 
+    '">' + element.event + 
+    '</textarea><button class="col-2 btn saveBtn" type="submit"><i class="fa-regular fa-floppy-disk"></i></button></div>'
+);
+
+// load previously saved enteries
+loadSaved(index);
+
+
+// Save option
+$('.saveBtn').on('click', function(event) {
+    event.preventDefault();
+
+    // get input text from textarea
+    let entryId = parseInt($(this).closest('.time-block').attr('id'));
+    let newEntry = $.trim($(this).parent().find('textarea').val());
+
+    // set id and value into workday array
+    workDay[entryId].event = newEntry;
+
+    // save to local storage
+    localStorage.setItem(entryId, newEntry);
+});
