@@ -52,7 +52,20 @@ $(function() {
         loadSaved(index);
     });
 
+    //Change color based on time
+        function timeColor(time) {
+            let currentTime = moment(now, "H a");
+            let workPlan = moment(time, "H a");
 
+            // compare current time with planned time
+            if (currentTime.isAfter(workPlan) === true) {
+                return 'past';
+            } else if (currentTime.isBefore(workPlan) === true) {
+                return 'future';
+            } else {
+                return 'present';
+            }
+        };
 
     // Save option
     $('.saveBtn').on('click', function(event) {
@@ -67,20 +80,6 @@ $(function() {
 
         // save to local storage
         localStorage.setItem(entryId, newEntry);
-    });
-
-    //Change color based on time
-    function bgColor(time) {
-        let currentTime = moment(now, "H a");
-        let workPlan = moment(time, "H a");
-
-        // compare current time with planned time
-        if (currentTime.isBefore(workPlan) === true) {
-            return 'future';
-        } else if (currentTime.isAfter(workPlan) === true) {
-            return 'past';
-        } else {
-            return 'present';
-        }
+    });    
 
 });

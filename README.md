@@ -17,7 +17,7 @@ https://ashleynicole1319.github.io/scheduler/
 
 
 ## Screen Capture of Horiseon Webpage
-<img src="">
+<img src="./assets/images/schedulerscreenshot.png">
 
 ## Contribution
 Edited by Ashley Warford
