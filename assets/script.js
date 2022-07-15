@@ -27,6 +27,7 @@ let workDay = [
 function loadSaved(words) {
     let savedEntry = localStorage.getItem(words);
 
+    //this is for showing any previously saved tasks
     if (savedEntry) {
         $('#col-text-' + words).text(savedEntry);
     }
@@ -38,7 +39,8 @@ $(function() {
         const colorBlock = timeColor(hour);
 
         // div for every hour
-        $('.container').append('<div class="row time-block" id="' + index + 
+        $('.container').append(
+            '<div class="row time-block" id="' + index + 
             '"><div class="col-2 hour">' + hour + 
             '</div><textarea id="col-text-' + index + 
             '" class="col-8 description ' + colorBlock + 
